@@ -6,13 +6,18 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "tsc",
-    "start": "tsc -w"
+    "watch": "tsc -w",
+    "server": "lite-server --baseDir=app",
+    "start": "concurrently \"npm run watch\" \"npm run server\""
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "concurrently": "^3.4.0"
+  },
   "devDependencies": {
     "@types/jquery": "^2.0.42",
+    "lite-server": "^2.3.0",
     "typescript": "^2.3.2"
   }
 }
