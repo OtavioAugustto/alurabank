@@ -1,4 +1,6 @@
-class Negociacoes {
+import { Negociacao } from '../models/Negociacao'
+
+export class Negociacoes {
 
     private _negociacoes: Negociacao [] = [];
 
