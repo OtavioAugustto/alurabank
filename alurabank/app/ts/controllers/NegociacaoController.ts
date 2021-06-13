@@ -1,11 +1,16 @@
 import { MensagemView, NegociacoesView } from '../views/index';
 import { Negociacoes, Negociacao } from '../models/index';
-
+import { domInject } from '../helpers/decorators/index';
 
 export class NegociacaoController {
 
+    @domInject('#data')
     private _inputData: JQuery;
+
+    @domInject('#quantidade')
     private _inputQuantidade: JQuery;
+
+    @domInject('#valor')
     private _inputaValor: JQuery;
     private _negociacoes = new Negociacoes();
     private _negociacoesView = new NegociacoesView('#negociacoesView');
@@ -13,10 +18,6 @@ export class NegociacaoController {
 
 
     constructor(){
-
-        this._inputData = $('#data');
-        this._inputQuantidade = $('#quantidade');
-        this._inputaValor = $('#valor');    
         this._negociacoesView.update(this._negociacoes);  
     }
 
@@ -41,7 +42,7 @@ export class NegociacaoController {
         this._negociacoes.adiciona(negociacao);
         
         this._negociacoesView.update(this._negociacoes);  
-        this._mensagemView.update('Negociação adicionada com sucesso!')
+        this._mensagemView.update('Negociação adicionada com sucesso!');
     }
 
     private _ehDiaUtil(data: Date){
