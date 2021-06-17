@@ -66,6 +66,10 @@ System.register(["../views/index", "../models/index", "../helpers/decorators/ind
                             .filter(negociacao => !negociacoesJaImportadas.some(jaImportada => negociacao.ehIgual(jaImportada)))
                             .forEach(negociacao => this._negociacoes.adiciona(negociacao));
                         this._negociacoesView.update(this._negociacoes);
+                        this._mensagemView.update('Negociacoes importadas com sucesso!');
+                    })
+                        .catch(err => {
+                        this._mensagemView.update(err.message);
                     });
                 }
             };

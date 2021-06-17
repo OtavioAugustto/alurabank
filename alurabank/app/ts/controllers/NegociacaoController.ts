@@ -77,7 +77,11 @@ export class NegociacaoController {
                     this._negociacoes.adiciona(negociacao));
 
                 this._negociacoesView.update(this._negociacoes);
-        }); 
+                this._mensagemView.update('Negociacoes importadas com sucesso!');
+        })
+        .catch(err =>{
+            this._mensagemView.update(err.message);
+        });
       
     }
 }
